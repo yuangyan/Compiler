@@ -1,0 +1,43 @@
+G	S'	S
+G	S	`Assignment	S	
+G	S	`Assignment	
+G	S	`Funcdef	S	
+G	S	`Funcdef
+G	S	`Func	S	
+G	S	`Func
+G	S	`Loop	S	
+G	S	`Loop
+G	S	`Con	S	
+G	S	`Con	
+G	`Expr	`Expr	`BinaryOp	`Expr
+G	`Expr	`UnaryOp	`Expr	
+G	`Expr	(	`Expr	)
+G	`Expr	`const		
+G	`Expr	`id		
+G	`Assignment	`id	`AssignmentOp	`Expr	
+G   `Func `id ( )
+G   `Func `id ( `Paras )
+G   `Paras `id , `Paras
+G   `Paras `id
+G   `Funcdef def `Func { S }
+G   `Funcdef def `Func { }
+G   `Loop while ( `Expr ) { S }
+G   `Loop while ( `Expr ) { }
+G   `Con if ( `Expr ) { S }
+G   `Con if ( `Expr ) { }
+isVN	S'		
+isVN	S		
+isVN	`Expr			
+isVN	`Assignment
+isVN	`Func	
+isVN	`Funcdef	
+isVN	`Loop	
+isVN	`Con	
+isVN	`Paras								
+filter	DOUBLE	`const		
+filter	INT	`const		
+filter	COMPLEX	`const		
+filter	IDENTIFIER	`id		
+filter	BINARY_OPERATOR	`BinaryOp		
+filter	UNARY_OPERATOR	`UnaryOp		
+filter	ASSIGNMENT_OPERATOR	`AssignmentOp		
