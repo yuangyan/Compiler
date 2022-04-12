@@ -1,13 +1,14 @@
 import argparse
-parser = argparse.ArgumentParser()
+
+parser = argparse.ArgumentParser("\nlex parser by yuangyan\nCourseworkwork for semester2, 2022\n")
 parser.add_argument("--showDFA", action="store_true",
                     help="show DFA coverted from input NFA")
 parser.add_argument("-i", "--input", type=str,
-                    help="input file name, 'lex.txt' by default")
+                    help="input file name, 'lex.txt' by default", metavar='')
 parser.add_argument("-r", "--rule", type=str,
-                    help="rule file name, 'lex_rule.txt' by default")
+                    help="rule file name, 'lex_rule.txt' by default", metavar='')
 parser.add_argument("-o", "--output", type=str,
-                    help="output file name, '<input file name>_parsed.txt' by default")
+                    help="output file name, '<input file name>_parsed.txt' by default", metavar='')
 args = parser.parse_args()
 
 

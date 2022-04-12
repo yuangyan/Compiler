@@ -1,14 +1,14 @@
 import argparse
 import sys
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser("\nLR1 grammar parser by yuangyan\nCourseworkwork for semester2, 2022\n")
 parser.add_argument("--showParsing", action="store_true",
                     help="show Parsing Process")
 parser.add_argument("-i", "--input", type=str,
-                    help="input file name, 'lex_parsed.txt' by default")
+                    help="input file name, 'lex_parsed.txt' by default", metavar='')
 parser.add_argument("-r", "--rule", type=str,
-                    help="rule file name, 'grammar_rule.txt' by default")
+                    help="rule file name, 'grammar_rule.txt' by default", metavar='')
 parser.add_argument("-o", "--output", type=str,
-                    help="output file name, '<input file name>_LR1.txt' by default")
+                    help="output file name, '<input file name>_LR1.txt' by default", metavar='')
 args = parser.parse_args()
 
 inputstr = "lex_parsed.txt"
@@ -79,8 +79,10 @@ with open(inputstr, 'r', encoding='utf-8') as f:
                 inputlist.append(row[2])
                 lexlist.append(row[2])
             else:
+                print('\033[1;31m')
                 print('error')
                 print('in line' + str(currentline) + ': ' + row[2] + '\ninvalid syntax')
+                print('\033[0m')
                 sys.exit()
 
 
