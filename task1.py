@@ -147,6 +147,14 @@ def NFA2DFA(NFA) :
 DFA, namedict = NFA2DFA(NFA)
 reversednamedict = {v:k for k,v in namedict.items()}
 
+for key, value in DFA.items() :
+    arrowstr = str(key[0]) + '---' + str(key[1]) + '--->' + str(value)
+    type = reversednamedict[value]
+    for item in type :
+        if (item in DFAType) == True :
+            arrowstr += '   (' + item + ')'
+    print(arrowstr)
+
 def Parse(DFA, s) :
     if s == 'i' :
         return 'IDENTIFIER'
@@ -178,8 +186,6 @@ def Parse(DFA, s) :
 
 
 ExprDFA, Exprnamedict = NFA2DFA(Expressionrule)
-print(ExprDFA)
-print(Exprnamedict)
 Exprreversednamedict = {v:k for k,v in Exprnamedict.items()}
 
 def ParseExpr(DFA, l) :
@@ -260,7 +266,6 @@ for item in input :
     else :
         if len(components) < -1 :
             if ParseExpr(ExprDFA, typelist) == 'invalid' :
-                print(typelist)
                 output.append((item[0], 'invalid_syntax', item[1]))
                 continue
 

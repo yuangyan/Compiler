@@ -1,6 +1,7 @@
 G = dict()
 isVN = set()
 filter = dict()
+inputlist = list()
 # read grammar
 with open('grammar_rule.txt', 'r', encoding='utf-8') as f:
     for line in f.readlines():
@@ -26,7 +27,7 @@ with open('grammar_rule.txt', 'r', encoding='utf-8') as f:
             filter[row[1]] = row[2]
 
 
-inputlist = list()
+
 with open('lex_parsed.txt', 'r', encoding='utf-8') as f:
     linecount = 1
     for line in f.readlines():

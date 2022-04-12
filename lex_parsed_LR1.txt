@@ -1,0 +1,12 @@
+0                  <#>                                    <while><(><id><BinaryOp><id><)><{><id><BinaryOp><id><}><#>    S4                                    
+0,4                <#><while>                             <(><id><BinaryOp><id><)><{><id><BinaryOp><id><}><#>           S16                                   
+0,4,16             <#><while><(>                          <id><BinaryOp><id><)><{><id><BinaryOp><id><}><#>              S21                                   
+0,4,16,21          <#><while><(><id>                      <BinaryOp><id><)><{><id><BinaryOp><id><}><#>                  r: <Expr> → <id>                      
+0,4,16,18          <#><while><(><Expr>                    <BinaryOp><id><)><{><id><BinaryOp><id><}><#>                  S23                                   
+0,4,16,18,23       <#><while><(><Expr><BinaryOp>          <id><)><{><id><BinaryOp><id><}><#>                            S21                                   
+0,4,16,18,23,21    <#><while><(><Expr><BinaryOp><id>      <)><{><id><BinaryOp><id><}><#>                                r: <Expr> → <id>                      
+0,4,16,18,23,24    <#><while><(><Expr><BinaryOp><Expr>    <)><{><id><BinaryOp><id><}><#>                                r: <Expr> → <Expr><BinaryOp><Expr>    
+0,4,16,18          <#><while><(><Expr>                    <)><{><id><BinaryOp><id><}><#>                                S25                                   
+0,4,16,18,25       <#><while><(><Expr><)>                 <{><id><BinaryOp><id><}><#>                                   S26                                   
+0,4,16,18,25,26    <#><while><(><Expr><)><{>              <id><BinaryOp><id><}><#>                                      S27                                   
+error
