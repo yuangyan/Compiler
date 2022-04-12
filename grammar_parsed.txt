@@ -1,0 +1,21 @@
+0                            <#>                                                      <while><(><`id><`BinaryOp><`id><)><{><`id><`AssignmentOp><`id><}><#>    S10                                               
+0,10                         <#><while>                                               <(><`id><`BinaryOp><`id><)><{><`id><`AssignmentOp><`id><}><#>           S11                                               
+0,10,11                      <#><while><(>                                            <`id><`BinaryOp><`id><)><{><`id><`AssignmentOp><`id><}><#>              S16                                               
+0,10,11,16                   <#><while><(><`id>                                       <`BinaryOp><`id><)><{><`id><`AssignmentOp><`id><}><#>                   r: <`Expr> → <`id>                                
+0,10,11,13                   <#><while><(><`Expr>                                     <`BinaryOp><`id><)><{><`id><`AssignmentOp><`id><}><#>                   S18                                               
+0,10,11,13,18                <#><while><(><`Expr><`BinaryOp>                          <`id><)><{><`id><`AssignmentOp><`id><}><#>                              S16                                               
+0,10,11,13,18,16             <#><while><(><`Expr><`BinaryOp><`id>                     <)><{><`id><`AssignmentOp><`id><}><#>                                   r: <`Expr> → <`id>                                
+0,10,11,13,18,19             <#><while><(><`Expr><`BinaryOp><`Expr>                   <)><{><`id><`AssignmentOp><`id><}><#>                                   r: <`Expr> → <`Expr><`BinaryOp><`Expr>            
+0,10,11,13                   <#><while><(><`Expr>                                     <)><{><`id><`AssignmentOp><`id><}><#>                                   S20                                               
+0,10,11,13,20                <#><while><(><`Expr><)>                                  <{><`id><`AssignmentOp><`id><}><#>                                      S21                                               
+0,10,11,13,20,21             <#><while><(><`Expr><)><{>                               <`id><`AssignmentOp><`id><}><#>                                         S27                                               
+0,10,11,13,20,21,27          <#><while><(><`Expr><)><{><`id>                          <`AssignmentOp><`id><}><#>                                              S61                                               
+0,10,11,13,20,21,27,61       <#><while><(><`Expr><)><{><`id><`AssignmentOp>           <`id><}><#>                                                             S70                                               
+0,10,11,13,20,21,27,61,70    <#><while><(><`Expr><)><{><`id><`AssignmentOp><`id>      <}><#>                                                                  r: <`Expr> → <`id>                                
+0,10,11,13,20,21,27,61,66    <#><while><(><`Expr><)><{><`id><`AssignmentOp><`Expr>    <}><#>                                                                  r: <`Assignment> → <`id><`AssignmentOp><`Expr>    
+0,10,11,13,20,21,22          <#><while><(><`Expr><)><{><`Assignment>                  <}><#>                                                                  r: <S> → <`Assignment>                            
+0,10,11,13,20,21,31          <#><while><(><`Expr><)><{><S>                            <}><#>                                                                  S33                                               
+0,10,11,13,20,21,31,33       <#><while><(><`Expr><)><{><S><}>                         <#>                                                                     r: <`Loop> → <while><(><`Expr><)><{><S><}>        
+0,5                          <#><`Loop>                                               <#>                                                                     r: <S> → <`Loop>                                  
+0,6                          <#><S>                                                   <#>                                                                     r: S'→S                                           
+accepted
