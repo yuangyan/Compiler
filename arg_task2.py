@@ -85,6 +85,27 @@ with open(inputstr, 'r', encoding='utf-8') as f:
 
 
 def printerror(index) :
+    frontstr = str()
+    backstr = str()
+    indexline = indextable[index]
+    total = 0
+
+    with open(inputstr, 'r', encoding='utf-8') as f:
+        for line in f.readlines():
+            
+            row = line.split()
+            currentline = int(row[0])
+            if currentline == indexline :
+                if total < index :
+                    frontstr += row[2]
+                else:
+                    backstr += row[2]
+
+            total += 1
+    print('in line ' + str(index) +': ' + frontstr + backstr)
+    print
+               
+
     
     pass
 
