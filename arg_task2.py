@@ -100,16 +100,13 @@ def printerror(index) :
                     frontstr += row[2]
                 else:
                     backstr += row[2]
+            if currentline > indexline :
+                break
 
             total += 1
     print('in line ' + str(index) +': ' + frontstr + backstr)
-    print
-               
-
-    
-    pass
-
-
+    print(len('in line ' + str(index) +': ' + frontstr) * ' ' + '^')
+    print('invalid syntax: ' + lexlist[index])
 
 
 def sortanddeduplicate(l) :
@@ -353,7 +350,7 @@ def LR1(s: list) :
         if nextmove == None :
             
             print('error')
-            print('in line' + str(indextable[i]) + ': ' + lexlist[i] + '\ninvalid syntax')
+            printerror(i)
             return 'error'
 
         if nextmove[0] == 1 :
@@ -384,8 +381,9 @@ def LR1(s: list) :
 
             # index out of range
             if rulelen > len(tobematched) :
-                print('in line' + str(indextable[i]) + ': ' + lexlist[i] + '\ninvalid syntax')
                 print('error')
+                printerror(i)
+                
                 return 'error'
 
             if tobematched == list(rule) :
@@ -395,8 +393,8 @@ def LR1(s: list) :
                 nextstat = table.get((statstack[-1], chartobeinserted))
             
                 if nextstat == None :
-                    print('in line' + str(indextable[i]) + ': ' + lexlist[i] + '\ninvalid syntax')
                     print('error')
+                    printerror(i)
                     return 'error'  
                 statstack.append(nextstat[1])
                 synstack.append(chartobeinserted)
@@ -411,8 +409,8 @@ def LR1(s: list) :
                 parsingstack.append((prevstatstack, prevsynstack, s[i:], 'r: ' + easylookingproduction))
                 if args.showParsing :
                     print((prevstatstack, prevsynstack, s[i:], 'r: ' + easylookingproduction))
-    print('in line' + str(indextable[i]) + ': ' + lexlist[i] + '\ninvalid syntax')
-    print('error')            
+    print('error')
+    printerror(i)         
     return 'error'
 
 issuccess = LR1(inputlist)
