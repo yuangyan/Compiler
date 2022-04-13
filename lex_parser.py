@@ -1,7 +1,7 @@
 import argparse
 
 parser = argparse.ArgumentParser("\nlex parser by yuangyan\nCourseworkwork for semester2, 2022\n")
-parser.add_argument("--showDFA", action="store_true",
+parser.add_argument("-s", "--showDFA", action="store_true",
                     help="show DFA coverted from input NFA")
 parser.add_argument("-i", "--input", type=str,
                     help="input file name, 'lex.txt' by default", metavar='')
@@ -83,6 +83,7 @@ with open(rulestr, 'r', encoding='utf-8') as f:
         if row[0] == 'Delimiter' :
             Delimiter.add(row[1])
             continue
+
 
 def sorttuple(tup) :
     l = list(tup)
@@ -295,7 +296,7 @@ for item in input :
         output.append((item[0], 'invalid_syntax', item[1]))
 
     else :
-        if len(components) < -1 :
+        if len(components) > 1 :
             if ParseExpr(ExprDFA, typelist) == 'invalid' :
                 output.append((item[0], 'invalid_syntax', item[1]))
                 continue

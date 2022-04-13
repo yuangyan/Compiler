@@ -1,7 +1,7 @@
 import argparse
 import sys
 parser = argparse.ArgumentParser("\nLR1 grammar parser by yuangyan\nCourseworkwork for semester2, 2022\n")
-parser.add_argument("--showParsing", action="store_true",
+parser.add_argument("-s", "--showParsing", action="store_true",
                     help="show Parsing Process")
 parser.add_argument("-i", "--input", type=str,
                     help="input file name, 'lex_parsed.txt' by default", metavar='')
@@ -81,7 +81,7 @@ with open(inputstr, 'r', encoding='utf-8') as f:
                 lexlist.append(row[2])
             else:
                 # print('\033[1;31m', end='')
-                print('error')
+                print('[ERROR]', end='')
                 # print('\033[0m', end='')
                 print('in line' + str(currentline) + ': ' + row[2] + '\ninvalid syntax')
                 
@@ -109,8 +109,8 @@ def printerror(index) :
                 break
 
             total += 1
-    print('in line ' + str(index) +': ' + frontstr + backstr)
-    print(len('in line ' + str(index) +': ' + frontstr) * ' ' + '^')
+    print('[ERROR] in line ' + str(index) +': ' + frontstr + backstr)
+    print(len('[ERROR] in line ' + str(index) +': ' + frontstr) * ' ' + '^')
     print('invalid syntax: ' + lexlist[index])
 
 
@@ -354,9 +354,6 @@ def LR1(s: list) :
         nextmove = table.get((statstack[-1], s[i]))
         if nextmove == None :
             
-            # print('\033[1;31m', end='')
-            print('error')
-            # print('\033[0m', end='')
             printerror(i)
             return 'error'
 
@@ -388,9 +385,7 @@ def LR1(s: list) :
 
             # index out of range
             if rulelen > len(tobematched) :
-                # print('\033[1;31m', end='')
-                print('error')
-                # print('\033[0m', end='')
+
                 printerror(i)
                 
                 return 'error'
@@ -402,9 +397,6 @@ def LR1(s: list) :
                 nextstat = table.get((statstack[-1], chartobeinserted))
             
                 if nextstat == None :
-                    # print('\033[1;31m', end='')
-                    print('error')
-                    # print('\033[0m', end='')
                     printerror(i)
                     return 'error'  
                 statstack.append(nextstat[1])
@@ -420,9 +412,6 @@ def LR1(s: list) :
                 parsingstack.append((prevstatstack, prevsynstack, s[i:], 'r: ' + easylookingproduction))
                 if args.showParsing :
                     print((prevstatstack, prevsynstack, s[i:], 'r: ' + easylookingproduction))
-    # print('\033[1;31m', end='')
-    print('error')
-    # print('\033[0m', end='')
     printerror(i)         
     return 'error'
 

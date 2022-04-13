@@ -3,6 +3,14 @@ NFA	S	.	C
 NFA	S	char	IDENTIFIER	
 NFA	S	e/E	IDENTIFIER	
 NFA	S	i	IDENTIFIER	
+NFA	S	'	K
+NFA	K	i	K	
+NFA	K	d+	K
+NFA	K	e/E	K
+NFA	K	char	K
+NFA	K	0	K
+NFA	K	ε	K
+NFA	K	'	STRING
 NFA	IDENTIFIER	char	IDENTIFIER	
 NFA	IDENTIFIER	i	IDENTIFIER	
 NFA	IDENTIFIER	e/E	IDENTIFIER	
@@ -94,11 +102,11 @@ Delimiter	}
 Delimiter	[
 Delimiter	]			
 Delimiter	,
-Delimiter	\t	
 DFAType	INT			
 DFAType	DOUBLE			
 DFAType	COMPLEX			
-DFAType	IDENTIFIER			
+DFAType	IDENTIFIER	
+DFAType	STRING		
 Expressionrule	S	identifier	A
 Expressionrule	S	keyword	A
 Expressionrule	S	assignment_operator	Expr1	

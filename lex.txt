@@ -1,18 +1,1 @@
-def func(a, b, c) {
-    while(a<b)       {
-        if(c>d)  {
-            while(1==2){
-                if(2==3){
-                    a += 1
-                    b = !b
-                    while(a==b){
-                        func(a, c, d)
-                    }
-                }
-                    
-                    
-            }
-        }
-    }
-
-
+123identi

@@ -9,18 +9,28 @@ G	S	Loop	S
 G	S	Loop
 G	S	Con	S	
 G	S	Con	
+G   S   Funcall S
+G   S   Funcall
 G	Expr	Expr	BinaryOp	Expr
 G	Expr	UnaryOp	Expr	
 G	Expr	(	Expr	)
 G	Expr	const		
-G	Expr	id		
-G	Assignment	id	AssignmentOp	Expr	
-G   Func id ( )
-G   Func id ( Paras )
+G	Expr	ids	
+G	Expr	Funcall	
+G	Expr	id  [ Expr ]
+G	Assignment	ids	AssignmentOp	Expr
+G   ids     id  .    ids
+G   ids     id
+G   Funcall ids ( )
+G   Funcall ids ( Consts )	
+G   Consts const
+G   Consts const , Consts
 G   Paras id , Paras
 G   Paras id
-G   Funcdef def Func { S }
-G   Funcdef def Func { }
+G   Funcdef def id ( ) { S }
+G   Funcdef def id ( Paras ) { S }
+G   Funcdef def id ( Paras ) { }
+G   Funcdef def id (  ) { }
 G   Loop while ( Expr ) { S }
 G   Loop while ( Expr ) { }
 G   Con if ( Expr ) { S }
@@ -28,15 +38,18 @@ G   Con if ( Expr ) { }
 isVN	S'		
 isVN	S		
 isVN	Expr			
-isVN	Assignment
-isVN	Func	
+isVN	Assignment	
 isVN	Funcdef	
 isVN	Loop	
 isVN	Con	
-isVN	Paras								
+isVN	Paras	
+isVN	Consts	
+isVN	Funcall	
+isVN	ids							
 filter	DOUBLE	const		
 filter	INT	const		
-filter	COMPLEX	const		
+filter	COMPLEX	const	
+filter	STRING	const	
 filter	IDENTIFIER	id		
 filter	BINARY_OPERATOR	BinaryOp		
 filter	UNARY_OPERATOR	UnaryOp		
