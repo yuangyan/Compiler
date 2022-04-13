@@ -178,7 +178,7 @@ reversednamedict = {v:k for k,v in namedict.items()}
 if args.showDFA :
     print('DFA:')
     for key, value in DFA.items() :
-        arrowstr = str(key[0]) + '---' + str(key[1]) + '--->' + str(value)
+        arrowstr = str(key[0]) + '--' + str(key[1]) + '-->' + str(value)
         type = reversednamedict[value]
         for item in type :
             if (item in DFAType) == True :

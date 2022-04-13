@@ -1,14 +1,25 @@
-0                      <#>                                 <if><(><id><BinaryOp><id><)><{><id><BinaryOp><id><[><const><]><}><#>    S2                                    
-0,2                    <#><if>                             <(><id><BinaryOp><id><)><{><id><BinaryOp><id><[><const><]><}><#>        S168                                  
-0,2,168                <#><if><(>                          <id><BinaryOp><id><)><{><id><BinaryOp><id><[><const><]><}><#>           S27                                   
-0,2,168,27             <#><if><(><id>                      <BinaryOp><id><)><{><id><BinaryOp><id><[><const><]><}><#>               r: <ids> → <id>                       
-0,2,168,28             <#><if><(><ids>                     <BinaryOp><id><)><{><id><BinaryOp><id><[><const><]><}><#>               r: <Expr> → <ids>                     
-0,2,168,169            <#><if><(><Expr>                    <BinaryOp><id><)><{><id><BinaryOp><id><[><const><]><}><#>               S66                                   
-0,2,168,169,66         <#><if><(><Expr><BinaryOp>          <id><)><{><id><BinaryOp><id><[><const><]><}><#>                         S68                                   
-0,2,168,169,66,68      <#><if><(><Expr><BinaryOp><id>      <)><{><id><BinaryOp><id><[><const><]><}><#>                             r: <ids> → <id>                       
-0,2,168,169,66,28      <#><if><(><Expr><BinaryOp><ids>     <)><{><id><BinaryOp><id><[><const><]><}><#>                             r: <Expr> → <ids>                     
-0,2,168,169,66,67      <#><if><(><Expr><BinaryOp><Expr>    <)><{><id><BinaryOp><id><[><const><]><}><#>                             r: <Expr> → <Expr><BinaryOp><Expr>    
-0,2,168,169            <#><if><(><Expr>                    <)><{><id><BinaryOp><id><[><const><]><}><#>                             S170                                  
-0,2,168,169,170        <#><if><(><Expr><)>                 <{><id><BinaryOp><id><[><const><]><}><#>                                S171                                  
-0,2,168,169,170,171    <#><if><(><Expr><)><{>              <id><BinaryOp><id><[><const><]><}><#>                                   S12                                   
-error
+0                                 <#>                                                <if><(><id><BinaryOp><id><)><{><id><AssignmentOp><id><}><#>    S2                                             
+0,2                               <#><if>                                            <(><id><BinaryOp><id><)><{><id><AssignmentOp><id><}><#>        S168                                           
+0,2,168                           <#><if><(>                                         <id><BinaryOp><id><)><{><id><AssignmentOp><id><}><#>           S27                                            
+0,2,168,27                        <#><if><(><id>                                     <BinaryOp><id><)><{><id><AssignmentOp><id><}><#>               r: <ids> → <id>                                
+0,2,168,28                        <#><if><(><ids>                                    <BinaryOp><id><)><{><id><AssignmentOp><id><}><#>               r: <Expr> → <ids>                              
+0,2,168,169                       <#><if><(><Expr>                                   <BinaryOp><id><)><{><id><AssignmentOp><id><}><#>               S66                                            
+0,2,168,169,66                    <#><if><(><Expr><BinaryOp>                         <id><)><{><id><AssignmentOp><id><}><#>                         S68                                            
+0,2,168,169,66,68                 <#><if><(><Expr><BinaryOp><id>                     <)><{><id><AssignmentOp><id><}><#>                             r: <ids> → <id>                                
+0,2,168,169,66,28                 <#><if><(><Expr><BinaryOp><ids>                    <)><{><id><AssignmentOp><id><}><#>                             r: <Expr> → <ids>                              
+0,2,168,169,66,67                 <#><if><(><Expr><BinaryOp><Expr>                   <)><{><id><AssignmentOp><id><}><#>                             r: <Expr> → <Expr><BinaryOp><Expr>             
+0,2,168,169                       <#><if><(><Expr>                                   <)><{><id><AssignmentOp><id><}><#>                             S170                                           
+0,2,168,169,170                   <#><if><(><Expr><)>                                <{><id><AssignmentOp><id><}><#>                                S171                                           
+0,2,168,169,170,171               <#><if><(><Expr><)><{>                             <id><AssignmentOp><id><}><#>                                   S12                                            
+0,2,168,169,170,171,12            <#><if><(><Expr><)><{><id>                         <AssignmentOp><id><}><#>                                       r: <ids> → <id>                                
+0,2,168,169,170,171,74            <#><if><(><Expr><)><{><ids>                        <AssignmentOp><id><}><#>                                       S123                                           
+0,2,168,169,170,171,74,123        <#><if><(><Expr><)><{><ids><AssignmentOp>          <id><}><#>                                                     S133                                           
+0,2,168,169,170,171,74,123,133    <#><if><(><Expr><)><{><ids><AssignmentOp><id>      <}><#>                                                         r: <ids> → <id>                                
+0,2,168,169,170,171,74,123,134    <#><if><(><Expr><)><{><ids><AssignmentOp><ids>     <}><#>                                                         r: <Expr> → <ids>                              
+0,2,168,169,170,171,74,123,128    <#><if><(><Expr><)><{><ids><AssignmentOp><Expr>    <}><#>                                                         r: <Assignment> → <ids><AssignmentOp><Expr>    
+0,2,168,169,170,171,80            <#><if><(><Expr><)><{><Assignment>                 <}><#>                                                         r: <S> → <Assignment>                          
+0,2,168,169,170,171,172           <#><if><(><Expr><)><{><S>                          <}><#>                                                         S174                                           
+0,2,168,169,170,171,172,174       <#><if><(><Expr><)><{><S><}>                       <#>                                                            r: <Branch> → <if><(><Expr><)><{><S><}>        
+0,6                               <#><Branch>                                        <#>                                                            r: <S> → <Branch>                              
+0,11                              <#><S>                                             <#>                                                            r: S'→S                                        
+accepted
