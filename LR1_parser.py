@@ -59,6 +59,7 @@ with open(rulestr, 'r', encoding='utf-8') as f:
         if row[0] == 'filter' :
             filter[row[1]] = row[2]
 
+
 with open(inputstr, 'r', encoding='utf-8') as f:
     linecount = 1
     for line in f.readlines():
@@ -79,14 +80,16 @@ with open(inputstr, 'r', encoding='utf-8') as f:
                 inputlist.append(row[2])
                 lexlist.append(row[2])
             else:
-                print('\033[1;31m')
+                # print('\033[1;31m', end='')
                 print('error')
+                # print('\033[0m', end='')
                 print('in line' + str(currentline) + ': ' + row[2] + '\ninvalid syntax')
-                print('\033[0m')
+                
                 sys.exit()
 
-
 def printerror(index) :
+    if index == len(inputlist) - 1 :
+        index -= 1
     frontstr = str()
     backstr = str()
     indexline = indextable[index]
@@ -351,7 +354,9 @@ def LR1(s: list) :
         nextmove = table.get((statstack[-1], s[i]))
         if nextmove == None :
             
+            # print('\033[1;31m', end='')
             print('error')
+            # print('\033[0m', end='')
             printerror(i)
             return 'error'
 
@@ -383,7 +388,9 @@ def LR1(s: list) :
 
             # index out of range
             if rulelen > len(tobematched) :
+                # print('\033[1;31m', end='')
                 print('error')
+                # print('\033[0m', end='')
                 printerror(i)
                 
                 return 'error'
@@ -395,7 +402,9 @@ def LR1(s: list) :
                 nextstat = table.get((statstack[-1], chartobeinserted))
             
                 if nextstat == None :
+                    # print('\033[1;31m', end='')
                     print('error')
+                    # print('\033[0m', end='')
                     printerror(i)
                     return 'error'  
                 statstack.append(nextstat[1])
@@ -411,7 +420,9 @@ def LR1(s: list) :
                 parsingstack.append((prevstatstack, prevsynstack, s[i:], 'r: ' + easylookingproduction))
                 if args.showParsing :
                     print((prevstatstack, prevsynstack, s[i:], 'r: ' + easylookingproduction))
+    # print('\033[1;31m', end='')
     print('error')
+    # print('\033[0m', end='')
     printerror(i)         
     return 'error'
 
