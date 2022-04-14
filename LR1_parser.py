@@ -110,7 +110,7 @@ def printerror(index) :
 
             total += 1
     print('[ERROR] in line ' + str(index) +': ' + frontstr + backstr)
-    print(len('[ERROR] in line ' + str(index) +': ' + frontstr) * ' ' + '^')
+    print(len('[ERROR] in line ' + str(index) +': ' + frontstr) * '~' + '^')
     print('invalid syntax: ' + lexlist[index])
 
 
