@@ -13,7 +13,7 @@ args = parser.parse_args()
 
 inputstr = "lex_parsed.txt"
 outputstr = "lex_parsed_LR1.txt"
-rulestr = 'LR1_rule.txt'
+rulestr = 'grammar_rule.txt'
 inputlist = list()
 G = dict()
 isVN = set()
