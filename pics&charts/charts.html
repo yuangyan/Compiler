@@ -64,13 +64,42 @@
             id7--true-->id8["return type[nextstat]"]-->id2
             id7--false-->id5
         </div>
+
+
+        total
+        <div class="mermaid">
+            graph TD
+            subgraph 输入文件预处理
+                id1["读取输入文件<br>读取正规式规则"]-->id2["建立待分析队列<br>存储关键字等固定规则<br>存储NFA规则"]
+                id2-->id5["NFA转为DFA"]
+                
+            end
+            subgraph 分析阶段
+                id3{"待分析队列为空"}
+                id5-->id3
+                
+                id3--false-->id6["取出队首s"]
+                id6-->id7{"判断是否为关键词，<br>限定符和操作符"}
+                id7--true-->id8["输出缓冲写入行号，类型，内容"]
+                id8-->id3
+                id7--false-->id9["送入DFA分析"]
+                id9-->id10["分析结果写入输出缓冲"]
+                id10-->id3
+            end
+            subgraph 输出阶段
+                id3--true-->id0[写输出文件]
+                id0-->id4["结束"]
+            end
+           
+
+        </div>
+
         canbevoid
         <div class="mermaid">
             graph TD
             id1["canbevoid=dict()<br>canbevoid[:]=false"]
 
         </div>
-
 
     </body>
 </html>
