@@ -42,6 +42,7 @@
             id3-->id5
             id5--true-->id2
             id6["closure.add(S'')<br>S'.append(S'')<br>i+=1"]
+            id6-->id2
             id5--false-->id6
         </div>
         Parse:
@@ -148,7 +149,33 @@
         total
         <div class="mermaid">
             graph TD
-            id1["读取token表<br>读取"]
+            subgraph 输入文件预处理
+                id1["读取输入token表<br>读取LR1文法"]-->id2["建立待分析队列<br>将LR1文法存储数据结构中"]
+                   
+            end
+
+            subgraph 生成分析器
+                id2-->id11["计算可为空的非终结符"]
+                id11-->id12["计算First集"]
+                id12-->id13["计算LR1的DFA"]
+                id13-->id14["通过DFA生成ACTION和GOTO表"]
+                   
+            end
+
+
+            subgraph 分析阶段
+                id14-->id15["符号栈.append(0)"]
+                id15-->id3{"待分析队列为空"}
+                id3--false-->id6["取出队首s"]
+                id6-->id7{"和当前符号栈送入表分析"}
+                id7--出错-->id16["报错"]
+                id7--移进或规约-->id17["更新符号栈和状态栈"]-->id3
+            end
+            subgraph 输出阶段
+                id16-->id0
+                id3--true-->id0[输出规约过程]
+                id0-->id4["结束"]
+            end
 
         </div>
 
