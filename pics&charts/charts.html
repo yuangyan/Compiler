@@ -19,12 +19,12 @@
             id3--false-->id5
             id6{"i != len(edges)"}
             id5-->id6
-            id7["S'=ε-closure(moveto(S', edges[i]))"]
+            id7["S'=ε-closure(moveto(S', edges[i]))<br>DFA[(S, edges[i])] = S'"]
             id6--true-->id7
             id6--false-->id3
             id8{"S' in E"}
             id7-->id8
-            id9["C.append(S')<br>E.append(S')<br>DFA[(S, edges[i])] = S'"]
+            id9["C.append(S')<br>E.append(S')"]
             id8--false-->id9
             id8--true-->id6
             id9-->id6
@@ -62,7 +62,7 @@
             id6-->id3
             id1--true-->id7{"nextstat in VT"}
             id7--true-->id8["return type[nextstat]"]-->id2
-            id7--false-->id2
+            id7--false-->id5
         </div>
         canbevoid
         <div class="mermaid">
