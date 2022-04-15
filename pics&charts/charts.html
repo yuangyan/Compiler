@@ -41,7 +41,7 @@
             id5{"S'' in S"}
             id3-->id5
             id5--true-->id2
-            id6["closure.add(S'')<br>S'.append(S'')"]
+            id6["closure.add(S'')<br>S'.append(S'')<br>i+=1"]
             id5--false-->id6
         </div>
         Parse:
@@ -97,9 +97,61 @@
         canbevoid
         <div class="mermaid">
             graph TD
-            id1["canbevoid=dict()<br>canbevoid[:]=false"]
+            id1["canbevoid=dict()<br>canbevoid[:]=false<br>haschanged=1"]
+            id1-->id8
+            id2{"i != len(canbevoid)"}
+            id2--false-->id8
+            id2--true-->id10-->id4{" '' in G[key[i]].productions"}
+            id4--true-->id5["canbevoid[key[i]]=true"]
+            id5-->id11{"canbevoid0==true"}
+            id11--true-->id12[haschanged=1]
+            id11--false-->id6
+            id12-->id6
+            id6["i+=1"]
+            id6-->id2
+            id4--false-->id6   
+            id8{"haschanged==0"}
+            id8--true-->id3["end"]
+            id8--false-->id9["i=0"]
+            id10["canbevoid0=canbevoid[i]"]
+            id9-->id2
+        </div>
+
+        firstset
+        <div class="mermaid">
+            graph TD
+            id1["FirstG=dict()"]
+            id2["hasextended=false"]
+            id1-->id2
+            id2-->id3["loop1: for key, value in G.items()<br>sizebefore = len(FirstG[key])"]
+            id3-->id4["loop2: for s in value<br>isended=true"]
+            id4-->id5["loop3: for ch in s"]
+            id5-->id6{"canbevoid[ch]==True"}
+            id6--true-->id7["FirstG[key] = FirstG[key] | (FirstG[ch] - {''})"]
+            id6--false-->id9["FirstG[key] = FirstG[key] | FirstG[ch]<br>isended=false"]
+            id9-->id10["FirstG[key] = FirstG[key] | {''}"]
+            id10-->id12["sizeafter = len(FirstG[key])"]
+            id12-->id11
+            id11{"sizeafter > sizebefore"}
+            id7--loop3_finished-->id12
+            id7--loop3_unfinished-->id5
+            id11--true-->id13["hasextended = True"]
+            id13-->id14{"loop2 finished"}
+            id11--true-->id14
+            id14--true-->id15{"hasextended=false"}
+            id14--false-->id4
+            id15--true-->id16["end"]
+            id15--false-->id17{"loop1 finished"}
+            id17--true-->id2
+            id17--false-->id3
+        </div>
+        total
+        <div class="mermaid">
+            graph TD
+            id1["读取token表<br>读取"]
 
         </div>
+
 
     </body>
 </html>
